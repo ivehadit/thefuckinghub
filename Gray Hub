@@ -1,0 +1,99 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local label = Instance.new("TextLabel")
+local bkmax = Instance.new("TextButton")
+local fruits = Instance.new("TextButton")
+local close = Instance.new("TextButton")
+local openmain = Instance.new("Frame")
+local open = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+main.BorderColor3 = Color3.fromRGB(225, 225, 225)
+main.Position = UDim2.new(0.33711341, 0, 0.230698615, 0)
+main.Size = UDim2.new(0, 337, 0, 215)
+main.Visible = false
+main.Active = true
+main.Draggable = true
+
+label.Name = "label"
+label.Parent = main
+label.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+label.BorderColor3 = Color3.fromRGB(42, 42, 42)
+label.Position = UDim2.new(0.201780409, 0, 0.0837209299, 0)
+label.Size = UDim2.new(0, 200, 0, 33)
+label.Font = Enum.Font.Nunito
+label.Text = "Gray Hub"
+label.TextColor3 = Color3.fromRGB(225, 225, 225)
+label.TextSize = 32.000
+
+bkmax.Name = "bkmax"
+bkmax.Parent = main
+bkmax.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
+bkmax.BorderColor3 = Color3.fromRGB(225, 225, 225)
+bkmax.Position = UDim2.new(0.201780409, 0, 0.311627895, 0)
+bkmax.Size = UDim2.new(0, 200, 0, 37)
+bkmax.Font = Enum.Font.Nunito
+bkmax.Text = "Bk Max"
+bkmax.TextColor3 = Color3.fromRGB(225, 225, 225)
+bkmax.TextSize = 26.000
+bkmax.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet(("https://raw.githubusercontent.com/koonpeatch/PeatEX/master/BKHAX/BloxFruits"),true))()
+end)
+
+fruits.Name = "fruits"
+fruits.Parent = main
+fruits.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
+fruits.BorderColor3 = Color3.fromRGB(225, 225, 225)
+fruits.Position = UDim2.new(0.201780409, 0, 0.62325573, 0)
+fruits.Size = UDim2.new(0, 200, 0, 37)
+fruits.Font = Enum.Font.Nunito
+fruits.Text = "Bring All Fruits"
+fruits.TextColor3 = Color3.fromRGB(225, 225, 225)
+fruits.TextSize = 26.000
+fruits.MouseButton1Down:connect(function()
+	fruit = true
+	while fruit do wait()
+		pcall(function()
+			for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+				if v:IsA("Tool") and v:FindFirstChild("Fruit") then
+					v.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+				end
+			end
+		end)
+	end
+end)
+
+close.Name = "close"
+close.Parent = main
+close.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
+close.BorderColor3 = Color3.fromRGB(225, 225, 225)
+close.Position = UDim2.new(0.913946629, 0, 0.0279069543, 0)
+close.Size = UDim2.new(0, 22, 0, 23)
+close.Font = Enum.Font.Nunito
+close.Text = "X"
+close.TextColor3 = Color3.fromRGB(225, 225, 225)
+close.TextSize = 28.000
+close.MouseButton1Down:connect(function()
+	main.Visible = false
+	openmain.Visible = true
+end)
+
+openmain.Name = "openmain"
+openmain.Parent = ScreenGui
+openmain.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+openmain.BorderColor3 = Color3.fromRGB(225, 225, 225)
+openmain.Position = UDim2.new(0.024742268, 0, 0.289403081, 0)
+openmain.Size = UDim2.new(0, 100, 0, 24)
+
+open.Name = "open"
